@@ -3,17 +3,21 @@ import pandas as pd
 if __name__ == '__main__':
     data = pd.read_csv("iris.data", names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class'])
     iris = pd.DataFrame(data)
-    # print(iris)
+    #print(iris)
     print()
 
     results_quantitative = pd.DataFrame(iris.mean(), columns=['mean'])
-    results_quantitative['standard deviation'] = iris.std()
+    results_quantitative['standard_deviation'] = iris.std()
     results_quantitative['median'] = iris.median()
-    results_quantitative['minimum'] = iris.mean()
+    results_quantitative['minimum'] = iris.min()
     results_quantitative['maximum'] = iris.max()
     print(results_quantitative)
+    print()
 
-    results_qualitative = pd.DataFrame()
+    #print(data['class'].describe())
+    results_qualitative = pd.DataFrame(iris.mode(), columns=['class'])
+    results_qualitative['amount'] = iris['class'].count()
+    print(results_qualitative)
     
     # print('Sepal length mean: ' + str(iris['sepal_length'].mean()))
     # print('Sepal width mean: ' + str(iris['sepal_width'].mean()))
