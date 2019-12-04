@@ -1,8 +1,8 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
-    data = pd.read_csv("iris.data", names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class'])
-    iris = pd.DataFrame(data)
+    iris = pd.read_csv("iris.data", names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class'])
     # print(iris)
     # print()
 
@@ -47,3 +47,10 @@ if __name__ == '__main__':
     quality = quality.append(tmp)
     print(quality)
     print()
+
+    print(iris.corr().round(3))
+    print()
+    plt.hist(iris.corr().get(['sepal_length']))
+    plt.ylabel('Współczynnik korelacji')
+    plt.xlabel('Cechy ilościowe')
+    plt.show()
