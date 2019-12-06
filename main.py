@@ -50,7 +50,25 @@ if __name__ == '__main__':
 
     print(iris.corr().round(3))
     print()
-    plt.hist(iris.corr().get(['sepal_length']))
+    iris.corr().hist(column='sepal_length')
+    # plt.hist(iris.corr().get(['sepal_length']))
     plt.ylabel('Współczynnik korelacji')
     plt.xlabel('Cechy ilościowe')
     plt.show()
+
+    print('Petal length histogram'),
+    iris.corr().hist(column='petal_length', bins=20,
+             histtype='bar',
+             facecolor='b',
+             alpha=0.5)
+    # plt.hist(iris.corr().get(['petal_length']), bins=20,
+    #          histtype='bar',
+    #          facecolor='b',
+    #          alpha=0.5)
+    # plt.show()
+    # print('Petal width histogram')
+    # plt.hist(iris.corr().get(['petal_width']), bins=20,
+    #          histtype='bar',
+    #          facecolor='b',
+    #          alpha=0.5)
+    # plt.show()
